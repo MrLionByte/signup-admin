@@ -1,0 +1,72 @@
+{% extends 'about.html' %}
+{% load static %}
+
+{% block title %}
+<title>IGNITE Growth | Admin Login</title>
+{% endblock title %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/admin_login.css' %}">
+{% endblock links %}
+
+{% block nav-menu %}
+<li class="nav-item">
+    <a class="nav-link active btn text-black" aria-current="page" href="{% url 'aboutpage' %}">About</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active btn text-black" aria-current="page" href="{% url 'login' %}">Sign-in</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active btn text-black" aria-current="page" href="{% url 'signup' %}">Sign-up</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active btn text-black" aria-current="page" href="{% url 'terms' %}">Terms & conditions</a>
+</li>
+{% endblock nav-menu %}
+
+
+{% block content %}
+    <div class="bg-img mt-5">
+        <div class="content">
+            <header>Login Form</header>
+            <form action="#" method="post">
+                {% csrf_token %}
+                <div class="field">
+                    <span class="fa fa-user"></span>
+                    <input type="text" name="admin_name" autocomplete="off" required placeholder="Admin">
+                </div>
+                <div class="field space">
+                    <span class="fa fa-lock"></span>
+                    <input type="password" name="admin_password" class="password" required placeholder="Password">
+    
+                </div>
+                <div class="pass">
+                    <a href="{% url 'aboutpage' %}">Not an Admin? Go back!</a>
+                </div>
+                <div class="field">
+                    <input type="submit" value="LOGIN">
+                </div>
+                <div class="">
+                        {% if messages %}
+                                                       {% for message in messages %}
+                                                           <div class="alert alert-warning d-flex align-items-center" role="alert">
+                                                               <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                                                                   <div >
+                                                                       {{message}}
+                                                                   </div>
+                                                                   </div>
+                                                       {% endfor %}
+                                                       {% endif %}
+                    </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block image-box %}
+      
+{% endblock image-box %}
+
+{% block footer%}{% endblock footer%}
+
+

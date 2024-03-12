@@ -1,0 +1,43 @@
+{% extends 'about.html' %}
+{% load static %}
+
+{% block title %}
+    <title>IGNITE Growth |  Blogpage</title>
+{% endblock title %}
+
+
+  {% block nav-menu %}
+  <li class="nav-item">
+    <p>Update Soon</p>
+</li>
+<li class="nav-item">
+  <a class="nav-link active btn text-black" aria-current="page" href="#"></a>
+</li>
+
+  {% endblock nav-menu %}
+
+    {% block content %}
+    <div class="p-5"></div>
+    {% endblock content %}
+    
+    {% block image-box %}
+    
+        <div class="d-flex justify-content-center m-5">
+          <img src="{% static 'img\blogimg2.png' %}" class="rounded " style="width: 30%;" alt="">
+          <h1 class="p-5 text-white" >Blog will be updated soon</h1>
+        </div>
+        {% endblock image-box %}
+
+     {% block footer %}
+     <div class="d-flex justify-content-end mb-5">
+        <div class="dropdown">
+          <button type="button" class="btn btn-info dropdown-toggle" style="margin-right: 10rem; " data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+              User Option
+            </button>
+            <div class="dropdown-menu p-4">
+               <a href="{% url 'logout_action' %}" class="btn "><button type="submit" class="btn btn-warning">logout</button>
+            </form>
+          </div>
+        </div>
+        </div>
+        {% endblock footer %}

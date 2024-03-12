@@ -1,0 +1,73 @@
+{% extends 'about.html' %}
+{% load static %}
+
+{% block title %}
+    <title>IGNITE Growth | Sign-up</title>
+    {% endblock title %}
+
+    {% block links %}
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    {% endblock links %}
+
+
+    {% block nav-menu %}
+                                    <li class="nav-item">
+                                        <a class="nav-link active btn text-black" aria-current="page" href="{% url 'aboutpage' %}">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active btn text-black" aria-current="page" href="{% url 'signup' %}">Sign-up</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active btn text-black" aria-current="page" href="{% url 'terms' %}">Terms & conditions</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active btn text-black" aria-current="page" href="{% url 'admin_login' %}">Admin-Panel</a>
+                                    </li>
+    {% endblock nav-menu %}
+
+    {% block content %}
+                    <div class="wrapper">
+                        <div class="title">
+                           Login Form
+                        </div>
+                        <form action="" method="post">
+                            {% csrf_token %}
+                           <div class="field">
+                               <input type="text" class="form-control mb-4" placeholder="username" name="username" id="username" >
+                           </div>
+                           <div class="field">
+                               <input type="password" class="form-control mb-4" name="password" placeholder="password" id="exampleInputPassword1">
+                           </div>
+                           <div class="content">
+                                                   <div class="mb-3">
+                                                       {% if messages %}
+                                                       {% for message in messages %}
+                                                           <div class="alert alert-warning d-flex align-items-center" role="alert">
+                                                               <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                                                                   <div >
+                                                                       {{message}}
+                                                                   </div>
+                                                                   </div>
+                                                       {% endfor %}
+                                                       {% endif %}
+                                                       </div>
+                           </div>
+                           <div class="field">
+                              <input type="submit" value="Login">
+                           </div>
+                           <div class="signup-link">
+                              Not a member? <a href="{% url 'signup' %}">Signup now</a>
+                           </div>
+                        </form>
+                     </div>
+
+    {% endblock content %}
+
+    {% block image-box %}
+    
+    {% endblock image-box %}
+
+    {% block footer%}
+    {% endblock footer%}
+</body>
+</html>
