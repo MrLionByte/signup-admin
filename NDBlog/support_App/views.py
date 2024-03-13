@@ -186,20 +186,6 @@ def admin_delete(request):
             pass
     return redirect('admin_panel')
 
-def searchuser(request):
-    if request.method == "POST":
-        search = request.POST.get("search")
-        checked_user = User.objects.filter(username__icontains=search)
-        if checked_user:
-            data = checked_user
-            return render(request, 'adminpanel.html', {'data': data})
-        else:
-            messages.error(request, "No user found")
-
-    # Return a default response for other cases
-    return render(request, 'adminpanel.html', {'data': User.objects.all()})
-
-
 
 def admin_logout(request):
     if request.user.is_authenticated:
