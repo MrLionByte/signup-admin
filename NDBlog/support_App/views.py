@@ -60,7 +60,6 @@ def login(request):
        check_username=request.POST.get('username')
        check_password=request.POST.get('password')
        user_object=authenticate(request,username=check_username,password=check_password)
-       print(user_object)
        if user_object is not None: 
            auth_login(request,user_object)
            return redirect('blogpage')
@@ -116,7 +115,7 @@ def admin_panel(request):
             'search_query': search_query,
         }
         return render(request, 'adminpanel.html', context)
-
+    
     messages.error(request, "Only admin is permitted")
     return redirect('admin_login')
 
