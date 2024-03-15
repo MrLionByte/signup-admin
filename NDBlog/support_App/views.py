@@ -33,6 +33,8 @@ def signup(request):
             messages.error(request,"Username already exist")
         elif user_email==user_name or '@' in user_name:
             messages.error(request,"Username can't be Email")
+        elif User.objects.filter(email=user_email).exists():
+            messages.error(request,"Email already exist")
         else:
             if user_name[0]=="-" or user_name[len(user_name)-1]=="-" or " " in user_name or " " in firstname:
                 messages.error(request,"username not acceptable")
