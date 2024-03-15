@@ -1,127 +1,92 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="Markdownify" width="200"></a>
   <br>
   Django Simple admin dashboard and Signup/SignIn page
   <br>
 </h1>
 
-<h4 align="center">A secure Django project with user authentication, admin panel (can create ,edit ,search or delete user) and also a signUp and signIn page with basic constraints.<a href="http://electron.atom.io" target="_blank">Electron</a>.</h4>
+<h4 align="center">A secure Django project with user authentication, admin panel (can create ,edit ,search or delete user) and also a signUp and signIn page with basic constraints.</h4>
 
-<p align="center">
-  <a href="https://badge.fury.io/js/electron-markdownify">
-    <img src="https://badge.fury.io/js/electron-markdownify.svg"
-         alt="Gitter">
-  </a>
-  <a href="https://gitter.im/amitmerchant1990/electron-markdownify"><img src="https://badges.gitter.im/amitmerchant1990/electron-markdownify.svg"></a>
-  <a href="https://saythanks.io/to/bullredeyes@gmail.com">
-      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
-  </a>
-  <a href="https://www.paypal.me/AmitMerchant">
-    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
-  </a>
-</p>
 
-<p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#download">Download</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
-  <a href="#license">License</a>
-</p>
-
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+<p align="center"><img src="https://maxmautner.com/public/images/django.gif" width="200" height="100" /></p>
 
 ## Key Features
 
-* LivePreview - Make changes, See changes
-  - Instantly see what your Markdown documents look like in HTML as you create them.
-* Sync Scrolling
-  - While you type, LivePreview will automatically scroll to the current location you're editing.
-* GitHub Flavored Markdown  
-* Syntax highlighting
-* [KaTeX](https://khan.github.io/KaTeX/) Support
-* Dark/Light mode
-* Toolbar for basic Markdown formatting
-* Supports multiple cursors
-* Save the Markdown preview as PDF
-* Emoji support in preview :tada:
-* App will keep alive in tray for quick usage
-* Full screen mode
-  - Write distraction free.
-* Cross platform
-  - Windows, macOS and Linux ready.
+* User authentication with login and signup functionality.
+* Signup page with restriction on creating already exsisted username or email.ii
+* Robust admin panel accessible only to authorized admin.
+* Secure session handling to prevent unauthorized access.
+* CRUD (Create, Read, Update, Delete) operations for admin in the admin panel.
 
 ## How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+If only need login,signup & admin Page:
+You can add this to your website by simply adding the web app called support_app inside the NDBlog folder 
 
-```bash
-# Clone this repository
-$ git clone https://github.com/amitmerchant1990/electron-markdownify
+else:
+simply download the whole project .If needed you can also download the venv.
 
-# Go into the repository
-$ cd electron-markdownify
+**OR GO FOR:**
+Installation
 
-# Install dependencies
-$ npm install
+1) Prerequisites:
+* Python (https://www.python.org/downloads/)
+* pip (package installer for Python)
 
-# Run the app
-$ npm start
-```
+2) Clone the repository:
+git clone https://your-repository-url.git
+cd your-project-name
 
-> **Note**
-> If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+3) Create a virtual environment (recommended):
+python -m venv venv
+source venv/bin/activate
+
+4) Install dependencies:
+pip install -r requirements.txt
+
+5) Migrate database schema:
+python manage.py migrate
+
+6) Create a superuser:
+python manage.py createsuperuser
 
 
-## Download
+> **USAGE**
 
-You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) the latest installable version of Markdownify for Windows, macOS and Linux.
+* Start the development server:
+	Bash
+	python manage.py runserver
+		This will typically run the server on http://127.0.0.1:8000/ by default.
 
-## Emailware
+Access the login page:
+	Visit http://127.0.0.1:8000/login/ in your web browser.
 
-Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <bullredeyes@gmail.com> about anything you'd want to say about this software. I'd really appreciate it!
+Log in or sign up:
+	If you already have an account, enter your credentials and log in.
+	If you are a new user, click on the "Sign Up" link and create a new account.
 
-## Credits
+Access the admin panel (authorized users only):
+	The admin panel URL will be generated dynamically based on your settings (e.g., http://127.0.0.1:8000/admin/).
+	Only authorized users (superuser or users with appropriate permissions) can access the admin panel.
 
-This software uses the following open source packages:
+CRUD operations in the admin panel:
+	Manage data using the provided forms in the admin interface.
 
-- [Electron](http://electron.atom.io/)
-- [Node.js](https://nodejs.org/)
-- [Marked - a markdown parser](https://github.com/chjj/marked)
-- [showdown](http://showdownjs.github.io/showdown/)
-- [CodeMirror](http://codemirror.net/)
-- Emojis are taken from [here](https://github.com/arvida/emoji-cheat-sheet.com)
-- [highlight.js](https://highlightjs.org/)
+***Security Considerations***
 
-## Related
+Session Management: 	This project employs secure session handling to prevent unauthorized access after login.<br>
 
-[markdownify-web](https://github.com/amitmerchant1990/markdownify-web) - Web version of Markdownify
+CSRF Protection: 	Django's built-in CSRF protection is enabled to mitigate cross-site request forgery attacks.<br>
 
-## Support
+Password Hashing: 	User passwords are securely hashed using Django's password hashing mechanism.<br>
 
-<a href="https://www.buymeacoffee.com/5Zn8Xh3l9" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+Regular Updates: 	Keep your project's dependencies (Django, Python) up-to-date to benefit from security fixes.<br>
 
-<p>Or</p> 
+<br>
+<br>
+***Contributing***
 
-<a href="https://www.patreon.com/amitmerchant">
-	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
+We welcome contributions to this project! Feel free to create pull requests with improvements or bug fixes.
 
-## You may also like...
-
-- [Pomolectron](https://github.com/amitmerchant1990/pomolectron) - A pomodoro app
-- [Correo](https://github.com/amitmerchant1990/correo) - A menubar/taskbar Gmail App for Windows and macOS
-
-## License
-
-MIT
-
----
-
-> [amitmerchant.com](https://www.amitmerchant.com) &nbsp;&middot;&nbsp;
-> GitHub [@amitmerchant1990](https://github.com/amitmerchant1990) &nbsp;&middot;&nbsp;
-> Twitter [@amit_merchant](https://twitter.com/amit_merchant)
 
